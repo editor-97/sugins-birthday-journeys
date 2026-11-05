@@ -132,6 +132,32 @@ footer {
   padding: 20px;
   color: #a75d9c;
 }
+  /* Flying birthday balloons */
+.balloon {
+  position: fixed;
+  bottom: -150px;
+  left: 0;
+  font-size: 45px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: flyBalloon 10s linear forwards;
+}
+
+@keyframes flyBalloon {
+  0% {
+    transform: translateY(0) translateX(0) rotate(-8deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-50vh) translateX(40px) rotate(8deg);
+  }
+
+  100% {
+    transform: translateY(-120vh) translateX(-30px) rotate(-8deg);
+    opacity: 0;
+  }
+}
 </style>
 </head>
 
@@ -297,6 +323,7 @@ function hideAll() {
 function startJourney() {
   hideAll();
   document.getElementById("journey").classList.remove("hidden");
+  flyBallons();
 
   const music = document.getElementById("music");
 
@@ -336,6 +363,30 @@ function celebrate() {
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 9000);
+  }
+}
+  function flyBalloons() {
+  const balloonTypes = ["🎈", "🎈", "💖", "🎈", "🎉"];
+
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => {
+      const balloon = document.createElement("div");
+
+      balloon.className = "balloon";
+
+      balloon.innerHTML =
+        balloonTypes[Math.floor(Math.random() * balloonTypes.length)];
+
+      balloon.style.left = Math.random() * 100 + "vw";
+
+      balloon.style.animationDuration =
+        (7 + Math.random() * 6) + "s";
+
+      document.body.appendChild(balloon);
+
+      setTimeout(() => balloon.remove(), 13000);
+
+    }, i * 400);
   }
 }
 </script>
