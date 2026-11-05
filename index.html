@@ -327,9 +327,9 @@ function startJourney() {
 
   const music = document.getElementById("music");
 
-  music.play().catch(() => {
-    console.log("Music can start after another click.");
-  });
+music.play().catch(error => {
+  console.log("Music playback failed:", error);
+});
 }
 
 function showPlace(place) {
