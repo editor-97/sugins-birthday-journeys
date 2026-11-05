@@ -313,8 +313,8 @@ You are the most beautiful part of my life. Every moment with you is special, an
   Made with 💖 especially for Sugins
 </footer>
 
-<audio id="song" loop>
-  <source src="song.mpeg" type="audio/mpeg">
+<audio id="music" loop>
+  <source src="music.mpeg" type="audio/mpeg">
 </audio>
 
 <script>
@@ -329,7 +329,7 @@ function startJourney() {
   document.getElementById("journey").classList.remove("hidden");
   flyBallons();
 
-  const song = document.getElementById("song");
+  const music = document.getElementById("music");
 
 music.play().catch(error => {
   console.log("Music playback failed:", error);
